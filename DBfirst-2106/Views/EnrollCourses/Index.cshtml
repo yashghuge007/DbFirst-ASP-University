@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DBfirst_2106.Models.StuEnrollCourse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+
+</p>
+
+<p>
+    <a asp-action="Create"  class ="btn btn-primary ">Add New</a>
+</p>
+
+
+<div>
+    <table class="border-0">
+        <tr>
+            <h3>Search here</h3>
+        </tr>
+        <tr>
+            <td class="ml-3">
+                <a asp-action="topperformerscourse" class="btn btn-outline-warning"><i class="bi bi-search"></i> Find top Students Course wise </a>
+            </td>
+            <td>
+                |
+            </td>
+             <td class="ml-3">
+               <a asp-action="topperformersdept" class="btn btn-outline-warning"><i class="bi bi-search"></i> Find top Students Department wise </a>
+            </td>
+            <td>
+                |
+            </td>
+             <td class="ml-3">
+                 <a asp-action="studentsincourse" class="btn btn-outline-warning"><i class="bi bi-search"></i> Find Students taught by specific Professor </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr />
+
+
+
+<table class="table tabel-hover">
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SIdNavigation.SId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SIdNavigation.SDept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courseid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.SIdNavigation.SId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SIdNavigation.SDept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Courseid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Coursename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+               @* <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

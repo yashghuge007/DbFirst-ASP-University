@@ -1,0 +1,56 @@
+﻿@model DBfirst_2106.Models.StuEnrollCourse;
+
+
+<script src ="~/lib/jquery/dist/jquery.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+  integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+    $(function(){
+        $("#dept1").change(function(){
+            var depts = $("#dept1 Option:selected").val();
+            $("#txtdept").val(depts);
+        })
+    });
+</script>
+
+@{
+    ViewData["Title"] = "topperformers";
+}
+
+<h1>top performers</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        @using(Html.BeginForm("topperformersdeptSearch","EnrollCourses"))
+        {
+             <div>
+                <label  class="control-label">Department      </label><br/>
+                
+
+                <input hidden type="text" id="txtdept" name="dept"/>
+                 <select id="dept1" class ="form-control" asp-items="new SelectList(ViewBag.list1)">
+                     <option value="" disabled selected hidden>Select Department</option>
+                </select>
+             </div>
+
+            
+
+             
+
+           
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+   
+    <a asp-action="Index">Back to List</a>
+</div>

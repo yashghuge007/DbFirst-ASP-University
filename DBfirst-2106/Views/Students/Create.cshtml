@@ -1,0 +1,40 @@
+﻿@model DBfirst_2106.Models.Student1
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Student1</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SName" class="control-label"></label>
+                <input asp-for="SName" class="form-control" />
+                <span asp-validation-for="SName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHomecity" class="control-label"></label>
+                <input asp-for="SHomecity" class="form-control" />
+                <span asp-validation-for="SHomecity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SDept" class="control-label"></label>
+                <input asp-for="SDept" class="form-control" />
+                <span asp-validation-for="SDept" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

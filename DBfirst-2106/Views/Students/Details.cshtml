@@ -1,0 +1,36 @@
+﻿@model DBfirst_2106.Models.Student1
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student1</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SHomecity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SHomecity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SDept)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SDept)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
